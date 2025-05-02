@@ -36,11 +36,15 @@ app.get('/logout', (req, res) => {
 
 
 const init = async () => {
-
+    try{
     await connectToDatabase();
     await setupTables()
 
     app.listen(4000, () => console.log("Server is running on http://localhost:4000"))
+    }
+    catch(error){
+        throw new Error("Boshlashda xatolik")
+    }
 }
 
 
